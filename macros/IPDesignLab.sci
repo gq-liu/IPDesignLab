@@ -46,9 +46,31 @@ endfunction
 
 function pb_begin_callback(handles)
 //Write your callback for  pb_begin  here
-j = evstr(handles.input_1.String)*evstr(handles.input_1.String);
-messagebox(string(j));
-
+M_car = evstr(handles.input_1.String);
+m_stick = evstr(handles.input_2.String);
+l_stick = evstr(handles.input_3.String)/2;
+r_wheel = evstr(handles.input_4.String);
+Km_coef = evstr(handles.input_5.String);
+t_coef = evstr(handles.input_6.String);
+g_coef = evstr(handles.input_7.String);
+out = M_car*m_stick*l_stick*r_wheel*Km_coef*t_coef*g_coef;
+//messagebox(String(out));
+//disp(out);
+s = %s;
+g_plant_motor_num = Km_coef*(M_car+m_stick)*r_wheel*s;
+g_plant_motor_den = t_coef*s + 1;
+g_plant_motor = g_plant_motor_num / g_plant_motor_den;
+//disp(g_plant_motor_num);
+//disp(g_plant_motor_den);
+disp(g_plant_motor);
+g_plant_main_num = 1 / ((M_car + m_stick) * g_coef);
+//disp(g_plant_main_num);
+J = (m_stick*(2*l_stick)**2)/3;
+Ap_square = ((M_car + m_stick)*m_stick*g_coef*l_stick)/((M_car + m_stick)*(J + m_stick*l_stick**2) - (m_stick*l_stick)**2);
+//disp(Ap_square);
+g_plant_main_den = (1/Ap_square)*s**2 - 1;
+g_plant_main = g_plant_main_num / g_plant_main_den;
+disp(g_plant_main);
 endfunction
 
 
