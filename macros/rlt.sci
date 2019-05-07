@@ -1,4 +1,4 @@
-function rlt()
+function rlt(g_plant_motor,g_plant_main)
 //  This program is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation; either version 2 of the License, or
@@ -26,6 +26,7 @@ function rlt()
 // clear position;
 format(7); //display precision
 //****************Default global values***********
+// global s g_plant_motor g_plant_main
 global g g_cont g_plant g_sensor  
 global MAG FREQ CYCLES Frunits kevans s gridon
 global last_time // check if too fast
@@ -36,12 +37,19 @@ global Knumber Frunits;
 global kevans fminmag fmaxmag magstep fminnyq fmaxnyq nyqstep fminbode fmaxbode bodestep tmax tstep fminsens fmaxsens sensstep zeta wn 
 global marked_handle // handle for marking poles
 
+disp('at Line 40 in rlt.sci');
 handles.f=[]
 //s=poly(0,'s');
-g_cont=%s^0;
-g_plant=1/%s;
-g_sensor=%s^0;
+s = %s
+g_cont=s^0;
+//g_plant=1/s;
+g_plant=g_plant_motor*g_plant_main;
+disp(g_plant_motor);
+disp(g_plant_main);
+disp(g_plant);
+g_sensor=s^0;
 g=g_cont*g_plant*g_sensor
+disp(g);
 Frunits='r';
 k=0;
 last_time=0;
