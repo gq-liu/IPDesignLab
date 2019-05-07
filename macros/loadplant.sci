@@ -19,20 +19,24 @@ function loadplant()
 //RLTOOL for scilab (c) Ishan Pendharkar. 
 //function load an already saved plant
 global g g_cont g_plant g_sensor marked_handle s
-ierr=1; // error checking flag
-while ierr<> 0 //dialog for entering filename
-filename=uigetfile('*.sci',pwd(),'enter filename to be loaded')
-	if filename=="" then 
-		ierr=0;
-		return;
-	else 
-		ierr=execstr('exec '+ filename,'errcatch');
-	end;
-	if ierr<>0 then messagebox(['Error loading plant.';'Ensure that path specified is correct and you have read permission';'If you are using Windows ENSURE THAT THERE ARE NO SPACES IN YOUR PATH';'For example, C:\Documents and Settings\ is not permitted';'Move the file to somewhere like C:\data']);
-	else, 
-	whichplot(g);
-	xinfo('Data in file '+filename +' is loaded.')
-	end;
-end;
-//return;
+whichplot(g);
 endfunction
+
+
+//ierr=1; // error checking flag
+//while ierr<> 0 //dialog for entering filename
+//filename=uigetfile('*.sci',pwd(),'enter filename to be loaded')
+//	if filename=="" then 
+//		ierr=0;
+//		return;
+//	else 
+//		ierr=execstr('exec '+ filename,'errcatch');
+//	end;
+//	if ierr<>0 then messagebox(['Error loading plant.';'Ensure that path specified is correct and you have read permission';'If you are using Windows ENSURE THAT THERE ARE NO SPACES IN YOUR PATH';'For example, C:\Documents and Settings\ is not permitted';'Move the file to somewhere like C:\data']);
+//	else, 
+//	whichplot(g);
+//	xinfo('Data in file '+filename +' is loaded.')
+//	end;
+//end;
+//return;
+//endfunction

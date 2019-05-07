@@ -22,50 +22,53 @@ CreditsMsg=['(c) Ishan Pendharkar, India.';
             'Jose Da Cunha, Brazil';
             'Holger Nahrstaedt, Germany'];
 
-Start='no';
-while Start=='no'
+loadplant();
+Start='yes';
+
+//Start='no';
+//while Start=='no'
 //WelcomeNumber=buttondialog(WelcomeMsg,"Open|New|Credits|Help|Cancel","question");
-WelcomeNumber=messagebox(WelcomeMsg,"Info","question",["Open","New","Credits","Help","Cancel"], "modal");
-if WelcomeNumber==1 then,
-	loadplant();
-	Start='yes';
-end;
-if WelcomeNumber==2 then
-	g_plant_new=rl(g_plant);
-	if g_plant<>[] then,
-	Start='yes'
-			if g_plant_new==g_plant then, 
+//WelcomeNumber=messagebox(WelcomeMsg,"Info","question",["Open","New","Credits","Help","Cancel"], "modal");
+//if WelcomeNumber==1 then,
+//	loadplant();
+//	Start='yes';
+//end;
+//if WelcomeNumber==2 then
+//	g_plant_new=rl(g_plant);
+//	if g_plant<>[] then,
+//	Start='yes'
+//			if g_plant_new==g_plant then, 
 //if user changes the plant then set controller to default, else use previous value
-			g_plant=g_plant_new
-			else
-			g_plant=g_plant_new
-			g_cont=s^0;
-			g_sensor=s^0; //default values for controller and sensor, plant has changed!
-			xinfo('Setting controller and plant to default values');
-			end
-	g=g_cont*g_plant*g_sensor;
-	else
-	bye();
-	end;
-end;
+//			g_plant=g_plant_new
+//			else
+//			g_plant=g_plant_new
+//			g_cont=s^0;
+//			g_sensor=s^0; //default values for controller and sensor, plant has changed!
+//			xinfo('Setting controller and plant to default values');
+//			end
+//	g=g_cont*g_plant*g_sensor;
+//	else
+//	bye();
+//	end;
+//end;
 
-if WelcomeNumber==3 then
-	HELPabout();
-	Start='no'
-end;
+//if WelcomeNumber==3 then
+//	HELPabout();
+//	Start='no'
+//end;
 
-if WelcomeNumber==4 then
-        //HELPmenu()
-        help "RLtool Toolbox"
-	Start='no'
-        halt("Help loaded! Press enter to proceed!");
-end;
+//if WelcomeNumber==4 then
+//        //HELPmenu()
+//        help "RLtool Toolbox"
+//	Start='no'
+//       halt("Help loaded! Press enter to proceed!");
+//end;
 
-if WelcomeNumber==5 then
-        bye()
-end;
+//if WelcomeNumber==5 then
+//        bye()
+//end;
 
-end;
+//end;
 return;
 
 endfunction
