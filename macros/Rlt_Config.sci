@@ -23,12 +23,14 @@ global nyqstep fminbode fmaxbode bodestep tmax tstep
 global fminsens fmaxsens sensstep zeta wn gridon 
 //************************************************************line 10******
 
-ierr=1;
-ierr=execstr('exec Rltool_Config-1.7.sci','errcatch');	
-if ierr<>0 then,// if file could not be opened then...
-//'// Loading your default settings file....'
-mode(-1)
+//ierr=1;
+//ierr=execstr('exec Rltool_Config-1.7.sci','errcatch');
+//disp(ierr);
+//if ierr<>0 then,// if file could not be opened then...
+////'// Loading your default settings file....'
+//mode(-1)
 // Rltool ver-1.7 Configuration file. Edit with care, if at all!
+
 gridon=0; // gridon = 0 (respectively 1) means grid off (respectively on)
 diry=pwd(); // your present working directory
 choice=1;   // choice=1 (respectively 2) means rootlocus mode (freq mode)
@@ -56,13 +58,14 @@ Knumber=3;      // Gain configuration (1) Gain in forward path (2) in feedback
 
 
 //Lines 14 to 42 are to be written into a file
-This_Path=get_function_path('Rlt_Config');
-Var_List=mgetl(This_Path);
-Var_List=Var_List(14:42,:);
-mputl(Var_List,'Rltool_Config-1.7.sci');
-else
-	disp('....loaded your settings file. Rltool is configured!');
-end;
+//This_Path=get_function_path('Rlt_Config');
+//Var_List=mgetl(This_Path);
+//Var_List=Var_List(14:42,:);
+//mputl(Var_List,'Rltool_Config-1.7.sci');
+//else
+//	disp('....loaded your settings file. Rltool is configured!');
+//end;
+disp('Rltool is configured!');
 return
 
 endfunction

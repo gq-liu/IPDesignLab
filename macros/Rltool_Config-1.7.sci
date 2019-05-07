@@ -1,16 +1,16 @@
 //Loading your default settings file....
 mode(-1)
 // Rltool ver-1.7 Configuration file. Edit with care, if at all!
-numer_g_cont= 1 // numerator of controller
-denom_g_cont= 1 // denominator of controller
-g_cont=numer_g_cont/denom_g_cont;
-numer_g_plant= 1 // numerator of plant
-denom_g_plant= +%s // denominator of plant
-g_plant=numer_g_plant/denom_g_plant;
-numer_g_sensor= 1 // numerator of plant
-denom_g_sensor= 1 // denominator of plant
-g_sensor=numer_g_sensor/denom_g_sensor;
-g=g_cont*g_plant*g_sensor // this is the plant
+//numer_g_cont= 1 // numerator of controller
+//denom_g_cont= 1 // denominator of controller
+//g_cont=numer_g_cont/denom_g_cont;
+//numer_g_plant= 1 // numerator of plant
+//denom_g_plant= +%s // denominator of plant
+//g_plant=numer_g_plant/denom_g_plant;
+//numer_g_sensor= 1 // numerator of plant
+//denom_g_sensor= 1 // denominator of plant
+//g_sensor=numer_g_sensor/denom_g_sensor;
+//g=g_cont*g_plant*g_sensor // this is the plant
 gridon=0
  // gridon = 0 (respectively 1) means grid off (respectively on
 choice=1

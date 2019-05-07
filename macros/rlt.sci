@@ -1,4 +1,4 @@
-function rlt(g_plant_motor,g_plant_main)
+function rlt(M_car,m_stick,l_stick,r_wheel,Km_coef,t_coef,g_coef)
 //  This program is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation; either version 2 of the License, or
@@ -40,22 +40,38 @@ global marked_handle // handle for marking poles
 disp('at Line 40 in rlt.sci');
 handles.f=[]
 //s=poly(0,'s');
-//s = %s
-g_cont=s^0;
-//g_plant=1/s;
 
+s = %s
+g_cont=s^0;
+disp(g_cont);
+
+//g_plant
+g_plant_motor_num = Km_coef*(M_car+m_stick)*r_wheel*s;
+g_plant_motor_den = t_coef*s + 1;
+g_plant_motor = g_plant_motor_num / g_plant_motor_den;
+disp('g_plant_motor=');
 disp(g_plant_motor);
+
+g_plant_main_num = 1 / ((M_car + m_stick) * g_coef);
+J = (m_stick*(2*l_stick)**2)/3;
+Ap_square = ((M_car + m_stick)*m_stick*g_coef*l_stick)/((M_car + m_stick)*(J + m_stick*l_stick**2) - (m_stick*l_stick)**2);
+g_plant_main_den = (1/Ap_square)*s**2 - 1;
+g_plant_main = g_plant_main_num / g_plant_main_den;
+disp('g_plant_main');
 disp(g_plant_main);
-g_plant=g_plant_motor*g_plant_main;
+g_plant = g_plant_motor*g_plant_main;
 disp(g_plant);
 g_sensor=s^0;
 g=g_cont*g_plant*g_sensor;
 disp(g);
+disp('At line 67 in rlt.sci');
 Frunits='r';
 k=0;
 last_time=0;
 //**************************************************
 Rlt_Config()
+disp('At line 73 in rlt.sci:g=');
+disp(g);
 //************************ welcome message *********
 welcomemsg()
 //**************** MENUS****************************
