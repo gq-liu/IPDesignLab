@@ -26,7 +26,7 @@ function rlt(g_plant_motor,g_plant_main)
 // clear position;
 format(7); //display precision
 //****************Default global values***********
-// global s g_plant_motor g_plant_main
+global s g_plant_motor g_plant_main handles
 global g g_cont g_plant g_sensor  
 global MAG FREQ CYCLES Frunits kevans s gridon
 global last_time // check if too fast
@@ -40,15 +40,16 @@ global marked_handle // handle for marking poles
 disp('at Line 40 in rlt.sci');
 handles.f=[]
 //s=poly(0,'s');
-s = %s
+//s = %s
 g_cont=s^0;
 //g_plant=1/s;
-g_plant=g_plant_motor*g_plant_main;
+
 disp(g_plant_motor);
 disp(g_plant_main);
+g_plant=g_plant_motor*g_plant_main;
 disp(g_plant);
 g_sensor=s^0;
-g=g_cont*g_plant*g_sensor
+g=g_cont*g_plant*g_sensor;
 disp(g);
 Frunits='r';
 k=0;
